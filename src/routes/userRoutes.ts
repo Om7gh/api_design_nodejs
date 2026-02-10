@@ -1,25 +1,21 @@
-import {Router} from "express"
-
+import { Router } from 'express';
+import { USER_API_NAME } from '../../constants.ts';
 const routes = Router();
 
-routes.get("/users", function(req, rep) {
-    return rep.status(200).json({message: "get all users"});
-})
+routes.get(USER_API_NAME.GET_USERS, function (req, rep) {
+    rep.status(200).json({ message: 'get all users' });
+});
 
-routes.get("/users/:id", function(req, rep) {
-    return rep.status(200).json({message: "get unique user by id"});
-})
+routes.get(USER_API_NAME.GET_USER_BY_ID, function (req, rep) {
+    return rep.status(200).json({ message: 'get unique user by id' });
+});
 
-routes.post("/users", function(req, rep) {
-    return rep.status(201).json({message: "create user"});
-})
+routes.delete(USER_API_NAME.DELETE_USER, function (req, rep) {
+    return rep.status(200).json({ message: 'delete unique user by id' });
+});
 
-routes.delete("/users/:id", function(req, rep) {
-    return rep.status(200).json({message: "delete unique user by id"});
-})
-
-routes.put("/users/:id", function(req, rep) {
-    return rep.status(200).json({message: "update user info by id"});
-})
+routes.put(USER_API_NAME.UPDATE_USER, function (req, rep) {
+    return rep.status(200).json({ message: 'update user info by id' });
+});
 
 export default routes;

@@ -1,9 +1,11 @@
 {
     "compilerOptions": {
+        "module": "ESNext",
+        "moduleResolution": "bundler",
         "esModuleInterop": true,
-        "allowSyntheticDefaultImports": false,
-        "emitDeclarationOnly": true,
-        "composite": true,
-        "allowImportingTsExtensions": true
+        "allowImportingTsExtensions": true,
+        "noEmit": true,
+        "allowJs": true,
+        "strict": true
     }
 }
