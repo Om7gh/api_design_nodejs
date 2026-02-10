@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports":false,
+    "emitDeclarationOnly": true,
+    "composite": true,
+    "allowImportingTsExtensions": true,
+  }
+}
