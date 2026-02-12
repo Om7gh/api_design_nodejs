@@ -1,15 +1,18 @@
 {
   "scripts": {
-    "dev": "node --watch ./src/index.ts"
+    "dev": "node --watch --trace-warnings ./src/index.ts"
   },
   "dependencies": {
     "@types/morgan": "^1.9.10",
+    "cors": "^2.8.6",
     "custom-env": "^2.0.6",
     "express": "^5.2.1",
+    "helmet": "^8.1.0",
     "morgan": "^1.10.1",
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6"
   },
   "type": "module"

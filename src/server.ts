@@ -2,6 +2,8 @@ import express from 'express';
 import morgan from 'morgan';
 import fs from 'fs';
 import path from 'path';
+import helmet from 'helmet';
+import cors from "cors"
 import { fileURLToPath } from 'url';
 
 import authRoutes from './routes/authRoutes.ts';
@@ -10,16 +12,19 @@ import userRoutes from './routes/userRoutes.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const app = express();
+const app = express()
 
 const accessLogStream = fs.createWriteStream(
     path.join(__dirname, 'access.log'),
     { flags: 'a' },
 );
 
+app.use(cors());
+app.use(helmet())
 app.use(morgan('combined', { stream: accessLogStream }));
-app.use(morgan('tiny'));
+app.use(morgan('combined'));
 app.use(express.json());
+app.use(express.urlencoded({extended: true}))
 
 app.get('/health', (req, res) => {
     res.status(200).json({
